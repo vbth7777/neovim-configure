@@ -44,8 +44,12 @@ set encoding=UTF-8
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+" { Terminal }
+let g:floaterm_position = 'topright'
+let g:floaterm_height = 0.6
+let g:floaterm_width = 0.4
 
-" Other setting
+"Other setting
 for setting_file in split(glob(stdpath('config').'/settings/*.vim'))
 	execute 'source' setting_file
 endfor
@@ -54,4 +58,4 @@ endfor
 " { File Browser }
 noremap <silent> <f5> :NERDTreeToggle<CR>
 " { Terminal }
-noremap <silent> <f6> :FloatermToggle<CR>
+noremap <silent> <f6> <C-\><C-n>:FloatermToggle<CR>
