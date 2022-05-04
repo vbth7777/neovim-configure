@@ -58,4 +58,4 @@ endfor
 " { File Browser }
 noremap <silent> <f5> :NERDTreeToggle<CR>
 " { Terminal }
-noremap <silent> <f6> <C-\><C-n>:FloatermToggle<CR>
+tnoremap <silent> <f6> <C-\><C-n>:FloatermToggle<CR>
