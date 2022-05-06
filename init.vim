@@ -16,6 +16,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'voldikss/vim-floaterm'
 	"{ Code Intellisense }
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	":CocInstall coc-clangd
+	":CocRestart
+	":CocCommand clangd.install 
 	Plug 'jiangmiao/auto-pairs'
 	"{ Code Syntax Highlight }
 	"{ Debugging }
@@ -55,6 +58,7 @@ for setting_file in split(glob(stdpath('config').'/settings/*.vim'))
 endfor
 
 "-----------Mapping------------
+" { General }
 " { File Browser }
 noremap <silent> <f5> :NERDTreeToggle<CR>
 " { Terminal }
