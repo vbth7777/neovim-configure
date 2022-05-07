@@ -16,9 +16,11 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'voldikss/vim-floaterm'
 	"{ Code Intellisense }
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	":CocInstall coc-clangd
-	":CocRestart
-	":CocCommand clangd.install 
+	" *things needed once installed coc.vim*
+		":CocInstall coc-json coc-tsserver
+		":CocInstall coc-clangd
+			":CocRestart
+			":CocCommand clangd.install 
 	Plug 'jiangmiao/auto-pairs'
 	"{ Code Syntax Highlight }
 	"{ Debugging }
