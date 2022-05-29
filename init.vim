@@ -30,6 +30,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'puremourning/vimspector'
 	"{ Git }
 	Plug 'tpope/vim-fugitive'
+	"{ Markdown }
+	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 "-----------Config-------------
