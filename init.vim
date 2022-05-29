@@ -21,7 +21,10 @@ call plug#begin('~/.config/nvim/plugged')
 		":CocInstall coc-clangd
 			":CocRestart
 			":CocCommand clangd.install 
-	Plug 'jiangmiao/auto-pairs'
+		":CocInstall coc-highlight
+		":CocInstall coc-emmet
+		":CocInstall coc-pairs 
+	"Plug 'jiangmiao/auto-pairs'
 	"{ Code Syntax Highlight }
 	"{ Debugging }
 	Plug 'puremourning/vimspector'
