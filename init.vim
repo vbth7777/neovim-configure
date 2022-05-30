@@ -1,42 +1,46 @@
 call plug#begin('~/.config/nvim/plugged')
-	"{ Theme }
-	"Plug 'joshdick/onedark.vim'
-	Plug 'sonph/onehalf', { 'rtp': 'vim' }
-	"{ File Browser }
-	Plug 'preservim/nerdtree'
-	Plug 'Xuyuanp/nerdtree-git-plugin'
-	Plug 'ryanoasis/vim-devicons'
-	"{ File Search }
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
-	"{ Status Bar }
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
-	"{ Terminal }
-	Plug 'voldikss/vim-floaterm'
-	"{ Code Intellisense }
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	" *things needed once installed coc.vim*
-		":CocInstall coc-json coc-tsserver
-		":CocInstall coc-clangd
-			":CocRestart
-			":CocCommand clangd.install 
-		":CocInstall coc-highlight
-		":CocInstall coc-emmet
-		":CocInstall coc-pairs 
-	"Plug 'jiangmiao/auto-pairs'
-	"{ Code Syntax Highlight }
-	"{ Debugging }
-	Plug 'puremourning/vimspector'
-	"{ Git }
-	Plug 'tpope/vim-fugitive'
-	"{ Markdown }
-	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+    "{ Theme }
+    "Plug 'joshdick/onedark.vim'
+    Plug 'sonph/onehalf', { 'rtp': 'vim' }
+    "{ File Browser }
+    Plug 'preservim/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'ryanoasis/vim-devicons'
+    "{ File Search }
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    "{ Status Bar }
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    "{ Terminal }
+    Plug 'voldikss/vim-floaterm'
+    "{ Code Intellisense }
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " *things needed once installed coc.vim*
+	    ":CocInstall coc-json coc-tsserver
+	    ":CocInstall coc-clangd
+		    ":CocRestart
+		    ":CocCommand clangd.install 
+	    ":CocInstall coc-highlight
+	    ":CocInstall coc-emmet
+	    ":CocInstall coc-pairs 
+    "Plug 'jiangmiao/auto-pairs'
+    "{ Code Syntax Highlight }
+    "{ Debugging }
+    Plug 'puremourning/vimspector'
+    "{ Git }
+    Plug 'tpope/vim-fugitive'
+    "{ Markdown }
+    "Require: Need install yarn
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+    Plug 'godlygeek/tabular'
+    Plug 'preservim/vim-markdown'
 call plug#end()
 
 "-----------Config-------------
 " { General }
-
+set number
+set shiftwidth=4
 " { Theme }
 "syntax on
 "colorscheme onedark
@@ -61,7 +65,7 @@ let g:floaterm_width = 0.4
 
 "Other setting
 for setting_file in split(glob(stdpath('config').'/settings/*.vim'))
-	execute 'source' setting_file
+    execute 'source' setting_file
 endfor
 
 "-----------Mapping------------
