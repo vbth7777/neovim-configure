@@ -17,13 +17,9 @@ call plug#begin('~/.config/nvim/plugged')
     "{ Code Intellisense }
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " *things needed once installed coc.vim*
-	    ":CocInstall coc-json coc-tsserver
-	    ":CocInstall coc-clangd
-		    ":CocRestart
+	    ":CocInstall coc-json coc-tsserver coc-clangd
 		    ":CocCommand clangd.install 
-	    ":CocInstall coc-highlight
-	    ":CocInstall coc-emmet
-	    ":CocInstall coc-pairs 
+	    ":CocInstall coc-highlight coc-emmet coc-pairs
     "Plug 'jiangmiao/auto-pairs'
     "{ Code Syntax Highlight }
     "{ Debugging }
@@ -62,6 +58,8 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:floaterm_position = 'topright'
 let g:floaterm_height = 0.6
 let g:floaterm_width = 0.4
+" { Markdown }
+let g:vim_markdown_folding_disabled = 1
 
 "Other setting
 for setting_file in split(glob(stdpath('config').'/settings/*.vim'))
