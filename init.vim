@@ -1,5 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
-    "{ Theme }
+   "{ Theme }
     "Plug 'joshdick/onedark.vim'
     Plug 'sonph/onehalf', { 'rtp': 'vim' }
     "{ File Browser }
