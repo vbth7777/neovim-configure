@@ -16,6 +16,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'voldikss/vim-floaterm'
     "{ Code Intellisense }
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'github/copilot.vim'
     " *things needed once installed coc.vim*
 	    ":CocInstall coc-json coc-tsserver coc-clangd
 		    ":CocCommand clangd.install 
@@ -24,6 +25,7 @@ call plug#begin('~/.config/nvim/plugged')
     "{ Code Syntax Highlight }
     "{ Debugging }
     Plug 'puremourning/vimspector'
+    Plug 'mattn/emmet-vim'
     "{ Git }
     Plug 'tpope/vim-fugitive'
     "{ Markdown }
@@ -75,3 +77,5 @@ noremap <silent> <f5> :NERDTreeToggle<CR>
 " { Terminal }
 noremap <silent> <f6> <C-\><C-n>:FloatermToggle<CR>
 tnoremap <silent> <f6> <C-\><C-n>:FloatermToggle<CR>
+nmap <C-Z> u
+imap <C-BS> <C-w>
