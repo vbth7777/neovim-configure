@@ -63,12 +63,7 @@ let g:floaterm_position = 'topright'
 let g:floaterm_height = 0.6
 let g:floaterm_width = 0.4
 " { Markdown }
-let g:vim_markdown_folding_disabled = 1
-
-"Other setting
-for setting_file in split(glob(stdpath('config').'/settings/*.vim'))
-    execute 'source' setting_file
-endfor
+let g:vim_markdown_folding_disabled = 1 "Other setting for setting_file in split(glob(stdpath('config').'/settings/*.vim')) execute 'source' setting_file endfor
 
 "-----------Mapping------------
 " { General }
