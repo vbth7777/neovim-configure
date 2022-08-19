@@ -58,10 +58,11 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 " Autocomplete navigation
-inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
-inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+inoremap <expr> <Down> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <Up> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#_select_confirm() : "<Tab>"
 inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 "inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
 "                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"

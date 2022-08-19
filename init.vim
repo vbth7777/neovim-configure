@@ -16,7 +16,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'voldikss/vim-floaterm'
     "{ Code Intellisense }
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    "Plug 'github/copilot.vim'
+    Plug 'github/copilot.vim'
+    " *things needed once installed coc.vim*
+	    ":Copilot setup
     " *things needed once installed coc.vim*
 	    ":CocInstall coc-json coc-tsserver coc-clangd
 		    ":CocCommand clangd.install 
