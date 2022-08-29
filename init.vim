@@ -6,6 +6,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'tiagofumo'
+        \ .'/vim-nerdtree-syntax-highlight'
+    Plug 'unkiwii/vim-nerdtree-sync'              " Sync current file
     "{ File Search }
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -15,6 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
     "{ Terminal }
     Plug 'voldikss/vim-floaterm'
     "{ Code Intellisense }
+    Plug 'jiangmiao/auto-pairs'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     "Plug 'github/copilot.vim'
     " *things needed once installed coc.vim*
@@ -22,7 +26,7 @@ call plug#begin('~/.config/nvim/plugged')
     " *things needed once installed coc.vim*
 	    ":CocInstall coc-json coc-tsserver coc-clangd
 		    ":CocCommand clangd.install 
-	    ":CocInstall coc-highlight coc-emmet coc-pairs
+	    ":CocInstall coc-highlight coc-emmet 
     "Plug 'jiangmiao/auto-pairs'
     "{ Code Syntax Highlight }
     "{ Debugging }
@@ -40,20 +44,55 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 
 "-----------Config-------------
+" ===========================
 " { General }
-set number
-set shiftwidth=4
-" { Theme }
+" ===========================
+set mouse=a                 " Enable mouse
+set tabstop=2               " 
+set shiftwidth=2            " 
+set expandtab
+set listchars=tab:\¦\       " Tab charactor 
+set list
+set foldmethod=syntax       " 
+set foldnestmax=1
+set foldlevelstart=0        "  
+set number                  " Show line number
+set ignorecase              " Enable case-sensitive 
+
+" Disable backup
+set nobackup
+set nowb
+set noswapfile
+
+" Optimize 
+set synmaxcol=200
+set lazyredraw
+au! BufNewFile,BufRead *.json set foldmethod=indent " Change foldmethod for specific filetype" { Theme }
 "syntax on
 "colorscheme onedark
 syntax on
 set t_Co=256
 set cursorline
-colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
 " lightline
 let g:lightline = { 'colorscheme': 'onehalfdark' }
 
+" Auto reload content changed outside
+au CursorHold,CursorHoldI * checktime
+au FocusGained,BufEnter * :checktime
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+    \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == ''
+      \ | checktime 
+    \ | endif
+autocmd FileChangedShellPost *
+    \ echohl WarningMsg 
+    \ | echo "File changed on disk. Buffer reloaded."
+    \ | echohl None
+
+
+" ===========================
+" { Plugins }
+" ===========================
 " { File Browser }
 set encoding=UTF-8
 " { Status Bar }
@@ -66,12 +105,25 @@ let g:floaterm_height = 0.6
 let g:floaterm_width = 0.4
 " { Markdown }
 let g:vim_markdown_folding_disabled = 1
+" Set Theme
+colorscheme onehalfdark
+" Overwrite some color highlight 
+if (has("autocmd"))
+  augroup colorextend
+    autocmd ColorScheme 
+      \ * call onehalfdark#extend_highlight("Comment",{"fg": {"gui": "#728083"}})
+    autocmd ColorScheme 
+      \ * call onehalfdark#extend_highlight("LineNr", {"fg": {"gui": "#728083"}})
+  augroup END
+endif
 
-"Other setting
+" Disable automatic comment in newline
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Other setting
 for setting_file in split(glob(stdpath('config').'/settings/*.vim'))
-    execute 'source' setting_file
+  execute 'source' setting_file
 endfor
-
 "-----------Mapping------------
 " { General }
 " { File Browser }
