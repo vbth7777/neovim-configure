@@ -124,7 +124,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Set color of coc floating
 highlight CocFloating ctermfg=white ctermbg=235
 " Set color of coc selecting
-highlight CocMenuSel ctermbg=DarkGray
+highlight CocMenuSel ctermbg=238
 " Set color of coc selecting search
 highlight CocPumSearch ctermfg=DarkBlue
 
