@@ -32,6 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
     "{ Debugging }
     Plug 'puremourning/vimspector'
     Plug 'mattn/emmet-vim'
+    Plug 'liuchengxu/vista.vim'
     "{ Git }
     Plug 'tpope/vim-fugitive'
     "{ Markdown }
@@ -108,14 +109,14 @@ let g:vim_markdown_folding_disabled = 1
 " Set Theme
 colorscheme onehalfdark
 " Overwrite some color highlight 
-if (has("autocmd"))
-  augroup colorextend
-    autocmd ColorScheme 
-      \ * call onehalfdark#extend_highlight("Comment",{"fg": {"gui": "#728083"}})
-    autocmd ColorScheme 
-      \ * call onehalfdark#extend_highlight("LineNr", {"fg": {"gui": "#728083"}})
-  augroup END
-endif
+"if (has("autocmd"))
+"  augroup colorextend
+"    autocmd ColorScheme 
+"      \ * call onehalfdark#extend_highlight("Comment",{"fg": {"gui": "#728083"}})
+"    autocmd ColorScheme 
+"      \ * call onehalfdark#extend_highlight("LineNr", {"fg": {"gui": "#728083"}})
+"  augroup END
+"endif
 
 " Disable automatic comment in newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -133,3 +134,5 @@ noremap <silent> <f6> <C-\><C-n>:FloatermToggle<CR>
 tnoremap <silent> <f6> <C-\><C-n>:FloatermToggle<CR>
 nmap <C-Z> u
 imap <C-BS> <C-w>
+
+highlight CocFloating ctermfg=white ctermbg=black
