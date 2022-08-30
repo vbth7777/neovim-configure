@@ -42,6 +42,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'preservim/vim-markdown'
     "{ Editor Tools }
     Plug 'neoclide/rename.nvim'
+    "{ Formatter }
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 call plug#end()
 
 "-----------Config-------------
@@ -49,14 +51,14 @@ call plug#end()
 " { General }
 " ===========================
 set mouse=a                 " Enable mouse
-set tabstop=2               " 
-set shiftwidth=2            " 
+set tabstop=4               " 
+set shiftwidth=4            " 
 set expandtab
 set listchars=tab:\¦\       " Tab charactor 
 set list
-set foldmethod=syntax       " 
-set foldnestmax=1
-set foldlevelstart=0        "  
+"set foldmethod=syntax       " 
+"set foldnestmax=1
+"set foldlevelstart=0        "  
 set number                  " Show line number
 set ignorecase              " Enable case-sensitive 
 
@@ -106,6 +108,9 @@ let g:floaterm_height = 0.6
 let g:floaterm_width = 0.4
 " { Markdown }
 let g:vim_markdown_folding_disabled = 1
+" { Formatter }
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
 " Set Theme
 colorscheme onehalfdark
 " Overwrite some color highlight 
