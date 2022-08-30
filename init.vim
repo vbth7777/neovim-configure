@@ -121,6 +121,13 @@ colorscheme onehalfdark
 " Disable automatic comment in newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" Set color of coc floating
+highlight CocFloating ctermfg=white ctermbg=235
+" Set color of coc selecting
+highlight CocMenuSel ctermbg=DarkGray
+" Set color of coc selecting search
+highlight CocPumSearch ctermfg=DarkBlue
+
 " Other setting
 for setting_file in split(glob(stdpath('config').'/settings/*.vim'))
   execute 'source' setting_file
@@ -135,4 +142,3 @@ tnoremap <silent> <f6> <C-\><C-n>:FloatermToggle<CR>
 nmap <C-Z> u
 imap <C-BS> <C-w>
 
-highlight CocFloating ctermfg=white ctermbg=black
