@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
     "{ Terminal }
     Plug 'voldikss/vim-floaterm'
     "{ Code Intellisense }
+    Plug 'github/copilot.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     "Plug 'github/copilot.vim'
@@ -68,11 +69,9 @@ set nowb
 set noswapfile
 
 " Optimize 
-set synmaxcol=200
-set lazyredraw
-au! BufNewFile,BufRead *.json set foldmethod=indent " Change foldmethod for specific filetype" { Theme }
-"syntax on
-"colorscheme onedark
+"set synmaxcol=200
+"set lazyredraw
+"au! BufNewFile,BufRead *.json set foldmethod=indent " Change foldmethod for specific filetype" { Theme }
 syntax on
 set t_Co=256
 set cursorline

@@ -31,7 +31,7 @@
         "default": "\uf29c"
     },
     "jedi.executable.command": "~/.local/bin/jedi-language-server",
-    "languageserver": { 
+    "languageserver": {
         // C++
         "ccls": {
             "command": "ccls",
@@ -56,9 +56,7 @@
         "cmake": {
             "command": "cmake-language-server",
             "filetypes": ["cmake"],
-            "rootPatterns": [
-                "build/"
-            ],
+            "rootPatterns": ["build/"],
             "initializationOptions": {
                 "buildDirectory": "build"
             }
