@@ -1,7 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
    "{ Theme }
-    "Plug 'joshdick/onedark.vim'
-    Plug 'sonph/onehalf', { 'rtp': 'vim' }
+    Plug 'joshdick/onedark.vim'
+    "Plug 'sonph/onehalf', { 'rtp': 'vim' }
     "{ File Browser }
     Plug 'preservim/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -21,8 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'github/copilot.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    "Plug 'github/copilot.vim'
-    " *things needed once installed coc.vim*
+    " *things needed once installed copilot.vim*
 	    ":Copilot setup
     " *things needed once installed coc.vim*
 	    ":CocInstall coc-json coc-tsserver coc-clangd
@@ -75,9 +74,11 @@ set noswapfile
 syntax on
 set t_Co=256
 set cursorline
-let g:airline_theme='onehalfdark'
+"let g:airline_theme='onehalfdark'
+let g:airline_theme='onedark'
 " lightline
 let g:lightline = { 'colorscheme': 'onehalfdark' }
+"let g:lightline = { 'colorscheme': 'onedark' }
 
 " Auto reload content changed outside
 au CursorHold,CursorHoldI * checktime
@@ -111,26 +112,20 @@ let g:vim_markdown_folding_disabled = 1
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 " Set Theme
-colorscheme onehalfdark
+"colorscheme onehalfdark
+colorscheme onedark
 " Overwrite some color highlight 
 "if (has("autocmd"))
 "  augroup colorextend
 "    autocmd ColorScheme 
-"      \ * call onehalfdark#extend_highlight("Comment",{"fg": {"gui": "#728083"}})
+"      \ * call onedark#extend_highlight("Comment",{"fg": {"gui": "#728083"}})
 "    autocmd ColorScheme 
-"      \ * call onehalfdark#extend_highlight("LineNr", {"fg": {"gui": "#728083"}})
+"      \ * call onehark#extend_highlight("LineNr", {"fg": {"gui": "#728083"}})
 "  augroup END
 "endif
 
 " Disable automatic comment in newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" Set color of coc floating
-highlight CocFloating ctermfg=white ctermbg=235
-" Set color of coc selecting
-highlight CocMenuSel ctermbg=238
-" Set color of coc selecting search
-highlight CocPumSearch ctermfg=DarkBlue
 
 " Other setting
 for setting_file in split(glob(stdpath('config').'/settings/*.vim'))
