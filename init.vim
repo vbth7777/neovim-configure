@@ -23,11 +23,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " *things needed once installed copilot.vim*
 	    ":Copilot setup
-    " *things needed once installed coc.vim*
-	    ":CocInstall coc-json coc-tsserver coc-clangd
-		    ":CocCommand clangd.install 
-	    ":CocInstall coc-highlight coc-emmet 
-    "Plug 'jiangmiao/auto-pairs'
     "{ Code Syntax Highlight }
     "{ Debugging }
     Plug 'puremourning/vimspector'
