@@ -2,9 +2,9 @@
 map <silent> <F5> :NERDTreeToggle<CR>
 
 " Enter to open new tab
-let NERDTreeMapCustomOpen = ''
-let NERDTreeMapOpenInTab = '<CR>'
-let NERDTreeMapActivateNode = '<CR>'
+"let NERDTreeMapCustomOpen = ''
+"let NERDTreeMapOpenInTab = '<CR>'
+"let NERDTreeMapActivateNode = '<CR>'
 
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * silent NERDTreeMirror
