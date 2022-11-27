@@ -50,16 +50,21 @@ function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
+function! IsPumVisible() 
+    if has('unix')
+        return coc#pum#visible()
+    endif
+    return pumvisible()
+endfunction
 "inoremap <silent><expr> <Tab>
 "      \ pumvisible() ? coc#pum#next(1) :
 "      \ CheckBackspace() ? "\<Tab>" :
 "      \ coc#refresh()
-"inoremap <silent><expr> <Tab>
-"      \ pumvisible() ? coc#pum#next(1) :
-"      \ CheckBackspace() ? "\<Tab>" :
-"      \ coc#refresh()
-"inoremap <silent><expr> <S-TAB> pumvisible() ? coc#pum#prev(1) : "\<S-TAB>"
+inoremap <silent><expr> <Tab>
+      \ IsPumVisible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <silent><expr> <S-TAB> IsPumVisible() ? coc#pum#prev(1) : "\<S-TAB>"
 
 
 "inoremap <silent><expr> <TAB>
@@ -87,8 +92,8 @@ endif
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<Tab>"
-"inoremap <expr> <cr> pumvisible() ? coc#_select_confirm() : "\<Cr>"
+"inoremap <expr> <Tab> IsPumVisible() ? coc#_select_confirm() : "\<Tab>"
+inoremap <expr> <cr> IsPumVisible() ? coc#_select_confirm() : "\<Cr>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
