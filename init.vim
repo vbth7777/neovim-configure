@@ -1,4 +1,4 @@
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin(stdpath('config').'/plugged')
    "{ Theme }
     Plug 'joshdick/onedark.vim'
     "Plug 'sonph/onehalf', { 'rtp': 'vim' }

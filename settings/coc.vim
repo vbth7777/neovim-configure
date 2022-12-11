@@ -52,9 +52,15 @@ function! CheckBackspace() abort
 endfunction
 function! IsPumVisible() 
     if has('unix')
-        return coc#pum#visible()
+        return pumvisible()
     endif
-    return pumvisible()
+    return coc#pum#visible()
+endfunction
+function! CocPumConfirm()
+    if has('unix')
+        return coc#pum#confirm()
+    endif
+    return coc#_select_confirm()
 endfunction
 "inoremap <silent><expr> <Tab>
 "      \ pumvisible() ? coc#pum#next(1) :
@@ -90,10 +96,10 @@ endif
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+inoremap <silent><expr> <cr> pumvisible() ? CocPumConfirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-"inoremap <expr> <Tab> IsPumVisible() ? coc#_select_confirm() : "\<Tab>"
-inoremap <expr> <cr> IsPumVisible() ? coc#_select_confirm() : "\<Cr>"
+"inoremap <expr> <Tab> IsPumVisible() ? CocPumConfirm() : "\<Tab>"
+inoremap <expr> <cr> IsPumVisible() ? CocPumConfirm() : "\<Cr>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
