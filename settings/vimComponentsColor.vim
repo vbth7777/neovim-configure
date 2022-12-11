@@ -12,3 +12,5 @@ highlight Normal ctermbg=232
 highlight CursorLine ctermbg=233
 " Set color of comment
 highlight Comment ctermfg=244
+" Set color of CocPumSearch
+highlight CocPumSearch ctermfg=45
