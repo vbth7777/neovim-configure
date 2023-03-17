@@ -10,6 +10,7 @@ let g:coc_global_extensions = [
       \'coc-clangd',
       \'coc-highlight',
       \'coc-emmet',
+      \'coc-fish',
       \]
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
@@ -52,9 +53,9 @@ function! CheckBackspace() abort
 endfunction
 function! IsPumVisible() 
     if has('unix')
-        return pumvisible()
+        return coc#pum#visible()
     endif
-    return coc#pum#visible()
+    return pumvisible()
 endfunction
 function! CocPumConfirm()
     if has('unix')
@@ -71,7 +72,6 @@ inoremap <silent><expr> <Tab>
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <silent><expr> <S-TAB> IsPumVisible() ? coc#pum#prev(1) : "\<S-TAB>"
-
 
 "inoremap <silent><expr> <TAB>
 "      \ pumvisible() ? "\<C-n>" :
